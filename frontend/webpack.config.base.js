@@ -17,7 +17,7 @@ module.exports = {
     static: {
       directory: path.join(__dirname, 'dist')
     },
-    port: 8080,
+    port: 8081,
     host: 'localhost',
     allowedHosts: 'all',
     open: true, // open the default browser

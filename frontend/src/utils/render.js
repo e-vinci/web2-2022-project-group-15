@@ -11,4 +11,11 @@ const renderPageTitle = (title) => {
   main.appendChild(pageTitle);
 };
 
-export { clearPage, renderPageTitle };
+const renderError = (error) => {
+  const main = document.querySelector('main');
+  const errorMessage = document.createElement('p');
+  errorMessage.innerText = error
+  main.appendChild(error);
+}
+
+export { clearPage, renderPageTitle, renderError };

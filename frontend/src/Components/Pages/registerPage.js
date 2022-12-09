@@ -1,10 +1,12 @@
-import { clearPage, renderPageTitle } from '../../utils/render';
+import { setAuthenticatedUser } from '../../utils/auths';
+import { clearPage, renderError, renderPageTitle } from '../../utils/render';
 
 const RegisterPage = () => {
   clearPage();
   renderPageTitle('Register');
   renderRegisterForm();
 };
+// let errorPassword = false;
 
 function renderRegisterForm() {
   const main = document.querySelector('main');
@@ -30,10 +32,12 @@ function renderRegisterForm() {
   password.className = 'form-group row ms-5 mt-3 ';
   const password2 = document.createElement('input');
   password2.type = 'password';
-  password2.id = 'password';
+  password2.id = 'password2';
   password2.required = true;
-  password2.placeholder = 'password';
+  password2.placeholder = 'password2';
   password2.className = 'form-group row ms-5 mt-3 mb-3'; 
+  
+    
   const submit = document.createElement('input');
   submit.value = 'Register';
   submit.type = 'submit';
@@ -44,6 +48,49 @@ function renderRegisterForm() {
   form.appendChild(password2);
   form.appendChild(submit);
   main.appendChild(form);
+  form.addEventListener('submit', onRegister);
+}
+
+async function onRegister(e) {
+  e.preventDefault();
+  // ajouté
+  // const loginMail = document.querySelector('#loginMail').value;
+  const password2 = document.querySelector('#password2').value;
+  // original
+  const username = document.querySelector('#username').value;
+  const password = document.querySelector('#password').value;
+  
+  // méthode pour conparer 2 mots de passes
+  if (password !== password2) {
+    // errorPassword = true;
+    renderError('Les mots de passes ne correspondent pas');
+    return ;
+  };
+
+  const options = {
+    method: 'POST',
+    body: JSON.stringify({
+      username,
+      password,
+    }),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  };
+
+  const response = await fetch('/api/auths/register', options);
+
+  if (!response.ok) throw new Error(`fetch error : ${response.status} : ${response.statusText}`);
+
+  const authenticatedUser = await response.json();
+
+  console.log('Newly registered & authenticated user : ', authenticatedUser);
+
+  setAuthenticatedUser(authenticatedUser);
+
+  // Navbar();
+
+  // Navigate('/');
 }
 
 export default RegisterPage;

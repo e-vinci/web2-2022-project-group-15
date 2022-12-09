@@ -1,6 +1,6 @@
 
 
-@baseUrl = http://localhost:8080
+@baseUrl = http://localhost:3000
 
 ### Try to login an unknow user
 POST {{baseUrl}}/auths/login
@@ -38,3 +38,5 @@ Content-Type: application/json
     "username":"manager",
     "password":"manager"
 }
+
+// Voir 

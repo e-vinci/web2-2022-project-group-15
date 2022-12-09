@@ -37,7 +37,9 @@ function renderRegisterForm() {
 
 async function onLogin(e) {
   e.preventDefault();
-
+  // ajouté
+  
+  // original
   const username = document.querySelector('#username').value;
   const password = document.querySelector('#password').value;
 

@@ -15,7 +15,7 @@ const renderError = (error) => {
   const main = document.querySelector('main');
   const errorMessage = document.createElement('p');
   errorMessage.innerText = error
-  main.appendChild(error);
+  main.appendChild(errorMessage);
 }
 
 export { clearPage, renderPageTitle, renderError };

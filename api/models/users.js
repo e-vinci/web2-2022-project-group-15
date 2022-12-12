@@ -69,6 +69,7 @@ function createOneUser(username, password) {
     id: getNextId(),
     username,
     password,
+    
   };
 
   users.push(createdUser);

@@ -34,8 +34,8 @@ function resource(number){
   
   function upHisLvl(){
     
-    if(money >= 100){
-      money -= 100;
+    if(money >= moneyToLvlUp){
+      money -= moneyToLvlUp;
       
       lvl += 1
       

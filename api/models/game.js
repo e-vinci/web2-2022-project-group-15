@@ -11,9 +11,11 @@ let moneyToLvlUp = 0;
 function setmoneyToLvlUp(number){
     moneyToLvlUp=number
 }
+
 function getmoneyToLvlUp(){
     return moneyToLvlUp;
 }
+
 function getmoney(){
     return money
 }
@@ -27,24 +29,22 @@ function getnbreressource1( number){
 }
 
 function resource(number){
-      resources[number] += 1;
-  }
+  resources[number] += 1;
+}
   
   
-  function upHisLvl(){
-    
-    if(money >= moneyToLvlUp){
-      money -= moneyToLvlUp;
-      lvl += 1;
-      increase();
-      
-    }
+function upHisLvl(){
+  if(money >= moneyToLvlUp){
+    money -= moneyToLvlUp;
+    lvl += 1;
+
+    increase();  
+  }
+}
   
-     
-  }
-  function increase(){
-    moneyToLvlUp = lvl*150.5;
-    moneyToLvlUp=Math.round(moneyToLvlUp);
-  }
+function increase(){
+  moneyToLvlUp = lvl*150.5;
+  moneyToLvlUp=Math.round(moneyToLvlUp);
+}
   
   

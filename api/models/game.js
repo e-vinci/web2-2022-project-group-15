@@ -1,34 +1,33 @@
-/*
-const lvl = 40;
-
+let lvl = 0;
 const unlock2 = 5;
 const unlock3 = 10;
 const unlock4 = 15;
-
-let rc1 = 0;
-let rc2 = 0;
-let rc3 = 0;
-let rc4 = 0;
+let money=0
+let  resource=[0,0,0,0]
+let moneyToLvlUp=0
 
 // let money = rc1*5 + rc2*20 + rc3*100 + rc4*250;
 
-backend fuctions
+function setmoneyToLvlUp(number){
+    moneyToLvlUp=number
+}
+function getmoneyToLvlUp(){
+    return moneyToLvlUp;
+}
+function getmoney(){
+    return money
+}
+
+function getlvl(){
+    return lvl;
+}
+
+function getnbreressource1( number){
+    if(resource <1 || resource>4){throw Error}else{return resource[number];}
+}
 
 function resource(number){
-    if(number === 1){
-      rc1 += 1;
-    }
-    if(number === 2){
-      rc2 += 1;
-    }
-    if(number === 3){
-      rc3 += 1;
-    }
-    if(number === 4){
-      rc4 += 1;
-    }
-  
-    GamePage();
+      resource[number] += 1;
   }
   
   
@@ -36,16 +35,16 @@ function resource(number){
     
     if(money >= moneyToLvlUp){
       money -= moneyToLvlUp;
-      
-      lvl += 1
+      lvl += 1;
+      increase();
       
     }
   
-     GamePage();
+     
   }
-  function increas(){
-    moneyToLvlUp = moneyToLvlUp*1.1 + 50
-    moneyToLvlUp.round
+  function increase(){
+    moneyToLvlUp = lvl*150.5;
+    moneyToLvlUp=Math.round(moneyToLvlUp);
   }
   
-  */
+  

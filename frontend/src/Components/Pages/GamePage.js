@@ -13,7 +13,7 @@ let rc2 = 0;
 let rc3 = 0;
 let rc4 = 0;
 
-// let money = rc1*5 + rc2*20 + rc3*100 + rc4*250;
+
 
 
 // frontend

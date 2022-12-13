@@ -4,18 +4,16 @@ import { clearPage, renderPageTitle } from '../../utils/render';
 
 // backend variables
 
-const unlock2 = 5;
-const unlock3 = 10;
-const unlock4 = 15;
+const unlockIron = 5;
+const unlockSilver = 10;
+const unlockGold = 15;
 
-const lvl = 0;
+const lvl = 16;
 
-let rc1 = 0;
-let rc2 = 0;
-let rc3 = 0;
-let rc4 = 0;
-
-
+let coal = 0; // function(0)
+let iron = 0; // function(1)
+let silver = 0; // function(2)
+let gold = 0; // function(3)
 
 
 
@@ -30,47 +28,52 @@ const GamePage = async () => {
   const gameCalcul=await fetch('/api/models/game')
   let result=gameCalcul. getnbreressource( 1);
   const main = document.querySelector('main');
-  const generateur1 = document.createElement('button');
+  const genCoal = document.createElement('button');
 
-  generateur1.innerText = 'rc1';
-  generateur1.className = 'btn btn-outline-primary borderbouton';
-  generateur1.addEventListener("click", ()=>{resource(1)});
+  genCoal.innerText = 'coal';
+  genCoal.id = 'genCoal'
+  genCoal.className = 'btn btn-outline-primary borderbouton';
+  // generateur1.addEventListener("click", ()=>{resource(1)});
   
-  main.appendChild(generateur1);
+  main.appendChild(genCoal);
 
-  if(unlock2 <= lvl){
-    const generateur2 = document.createElement('button');
+  if(unlockIron <= lvl){
+    const genIron = document.createElement('button');
 
-    generateur2.innerText = 'rc2';
-    generateur2.className = 'btn btn-outline-primary borderbouton';
-    generateur2.addEventListener("click", ()=>{resource(2)});
+    genIron.innerText = 'iron';
+    genIron.id = 'genIron'
+    genIron.className = 'btn btn-outline-primary borderbouton';
+    // generateur2.addEventListener("click", ()=>{resource(2)});
   
-    main.appendChild(generateur2);
+    main.appendChild(genIron);
   }
 
-  if(unlock3 <= lvl){
-    const generateur3 = document.createElement('button');
+  if(unlockSilver <= lvl){
+    const genSilver = document.createElement('button');
 
-    generateur3.innerText = 'rc3';
-    generateur3.className = 'btn btn-outline-primary borderbouton';
-    generateur3.addEventListener("click", ()=>{resource(3)});
+    genSilver.innerText = 'silver';
+    genSilver.id = 'genSilver'
+    genSilver.className = 'btn btn-outline-primary borderbouton';
+    // generateur3.addEventListener("click", ()=>{resource(3)});
   
-    main.appendChild(generateur3);
+    main.appendChild(genSilver);
   }
 
-  if(unlock4 <= lvl){
-    const generateur4 = document.createElement('button');
+  if(unlockGold <= lvl){
+    const genGold = document.createElement('button');
 
-    generateur4.innerText = 'rc4';
-    generateur4.className = 'btn btn-outline-primary borderbouton';
-    generateur4.addEventListener("click", ()=>{resource(4)});
+    genGold.innerText = 'gold';
+    genGold.id = 'genGold'
+    genGold.className = 'btn btn-outline-primary borderbouton';
+    // generateur4.addEventListener("click", ()=>{resource(4)});
   
-    main.appendChild(generateur4);
+    main.appendChild(genGold);
   }
 
   const lvlUpButton = document.createElement('button');
 
   lvlUpButton.innerText = 'lvl up';
+  lvlUpButton.id = 'lvlUpButton'
   lvlUpButton.className = 'btn btn-outline-primary borderbouton';
    lvlUpButton.addEventListener("click", gameCalcul.upHisLvl());
   
@@ -84,70 +87,45 @@ function allInfo(){
 
   // there is a mistake 
   // showLvl.innerHTML = `you are curently level ${lvl}`; 
+  showLvl.id = 'showlvl'
 
   main.appendChild(showLvl);
 
-  const showRc1 = document.createElement('div');
-  showRc1.innerHTML = `you have ${rc1} bananas, it has de value of ${rc1*result}$`; 
+  const showCoal = document.createElement('div');
+  showCoal.innerHTML = `you have ${coal} coal, it has de value of ${coal*5}$`; 
+  showCoal.id = 'showCoal'
 
-  main.appendChild(showRc1);
+  main.appendChild(showCoal);
 
-  if(unlock2 <= lvl){
-    const showRc2 = document.createElement('div');
-    showRc2.innerHTML = `you have ${rc2} apples, it has de value of ${rc2*20}$`; 
+  if(unlockIron <= lvl){
+    const showIron = document.createElement('div');
+    showIron.innerHTML = `you have ${iron} iron, it has de value of ${iron*20}$`; 
+    showIron.id = 'showIron'
 
-    main.appendChild(showRc2);
+    main.appendChild(showIron);
   }
-  if(unlock3 <= lvl){
-    const showRc3 = document.createElement('div');
-    showRc3.innerHTML = `you have ${rc3} pineapple, it has de value of ${rc3*100}$`; 
+  if(unlockSilver <= lvl){
+    const showSilver = document.createElement('div');
+    showSilver.innerHTML = `you have ${silver} silver, it has de value of ${silver*100}$`; 
+    showSilver.id = 'showSilver'
 
-    main.appendChild(showRc3);
+    main.appendChild(showSilver);
   }
-  if(unlock4 <= lvl){
-    const showRc4 = document.createElement('div');
-    showRc4.innerHTML = `you have ${rc4} kiwis, it has de value of ${rc4*250}$`; 
+  if(unlockGold <= lvl){
+    const showGold = document.createElement('div');
+    showGold.innerHTML = `you have ${gold} gold, it has de value of ${gold*250}$`;
+    showGold.id = 'showGold' 
 
-    main.appendChild(showRc4);
+    main.appendChild(showGold);
   }
 
   const showMoney = document.createElement('div');
   // showMoney.innerHTML = `you have in total ${money}$`; 
+  showMoney.id = 'showMoney'
 
   main.appendChild(showMoney);
 }
 
 // backend fuctions
-
-function resource(number){
-  if(number === 1){
-    rc1 += 1;
-  }
-  if(number === 2){
-    rc2 += 1;
-  }
-  if(number === 3){
-    rc3 += 1;
-  }
-  if(number === 4){
-    rc4 += 1;
-  }
-
-  GamePage();
-}
-
-/*
-function upHisLvl(){
-  
-  if(money >= 100){
-    money -= 100;
-    
-    lvl += 1
-    
-  }
-
-   GamePage();
-}
-*/
 
 export default GamePage;

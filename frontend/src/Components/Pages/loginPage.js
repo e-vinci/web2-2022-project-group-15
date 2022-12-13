@@ -1,5 +1,7 @@
 import { setAuthenticatedUser } from '../../utils/auths';
 import { clearPage, renderPageTitle } from '../../utils/render';
+import Navigate from '../Router/Navigate';
+import Navbar from '../Navbar/Navbar';
 
 
 const LoginPage = () => {
@@ -69,9 +71,10 @@ async function onLogin(e) {
 
   setAuthenticatedUser(authenticatedUser);
 
-  // Navbar();
+  Navbar();
 
-  // Navigate('/');
+  Navigate('/');
 }
+
 
 export default LoginPage;

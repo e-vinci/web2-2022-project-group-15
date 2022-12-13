@@ -1,5 +1,7 @@
 import { clearPage, renderPageTitle } from '../../utils/render';
 
+
+
 // backend variables
 
 const unlock2 = 5;
@@ -16,15 +18,17 @@ let rc4 = 0;
 
 
 
+
 // frontend
 
-const GamePage = () => {
+const GamePage = async () => {
 
   clearPage();
   renderPageTitle('Game');
 
   allInfo();
-  
+  const gameCalcul=await fetch('/api/models/game')
+  let result=gameCalcul. getnbreressource( 1);
   const main = document.querySelector('main');
   const generateur1 = document.createElement('button');
 
@@ -68,7 +72,7 @@ const GamePage = () => {
 
   lvlUpButton.innerText = 'lvl up';
   lvlUpButton.className = 'btn btn-outline-primary borderbouton';
-  // lvlUpButton.addEventListener("click", upHisLvl());
+   lvlUpButton.addEventListener("click", gameCalcul.upHisLvl());
   
   main.appendChild(lvlUpButton);
 };
@@ -84,7 +88,7 @@ function allInfo(){
   main.appendChild(showLvl);
 
   const showRc1 = document.createElement('div');
-  showRc1.innerHTML = `you have ${rc1} bananas, it has de value of ${rc1*5}$`; 
+  showRc1.innerHTML = `you have ${rc1} bananas, it has de value of ${rc1*result}$`; 
 
   main.appendChild(showRc1);
 

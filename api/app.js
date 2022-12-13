@@ -4,7 +4,7 @@ const logger = require('morgan');
 
 const usersRouter = require('./routes/users');
 const authsRouter = require('./routes/auths'); // login and register
-
+const game=require('./')
 const app = express();
 
 app.use(logger('dev'));

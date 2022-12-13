@@ -8,27 +8,27 @@ let moneyToLvlUp=0
 
 // let money = rc1*5 + rc2*20 + rc3*100 + rc4*250;
 
-function setmoneyToLvlUp(number){
-    moneyToLvlUp=number
-}
-function getmoneyToLvlUp(){
-    return moneyToLvlUp;
-}
-function getmoney(){
-    return money
-}
+    function setmoneyToLvlUp(number){
+        moneyToLvlUp=number
+    }
+    function getmoneyToLvlUp(){
+        return moneyToLvlUp;
+    }
+    function getmoney(){
+        return money
+    }
 
-function getlvl(){
-    return lvl;
-}
+    function getlvl(){
+        return lvl;
+    }
 
-function getnbreressource1( number){
+    function getnbreressource( number){
     if(resource <1 || resource>4){throw Error}else{return resource[number];}
-}
+    }
 
-function resource(number){
+    function resource(number){
       resource[number] += 1;
-  }
+    }
   
   
   function upHisLvl(){

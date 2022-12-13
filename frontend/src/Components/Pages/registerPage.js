@@ -1,5 +1,7 @@
 import { setAuthenticatedUser } from '../../utils/auths';
 import { clearPage, renderError, renderPageTitle } from '../../utils/render';
+import Navigate from '../Router/Navigate';
+import Navbar from '../Navbar/Navbar';
 
 const RegisterPage = () => {
   clearPage();
@@ -63,7 +65,7 @@ async function onRegister(e) {
   // méthode pour conparer 2 mots de passes
   if (password !== password2) {
     // errorPassword = true;
-    renderError('Les mots de passes ne correspondent pas');
+    renderError('Passwords do not match');
     return ;
   };
 
@@ -88,9 +90,9 @@ async function onRegister(e) {
 
   setAuthenticatedUser(authenticatedUser);
 
-  // Navbar();
+  Navbar();
 
-  // Navigate('/');
+  Navigate('/');
 }
 
 export default RegisterPage;

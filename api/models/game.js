@@ -43,4 +43,9 @@ function resource(number){
   
      GamePage();
   }
+  function increas(){
+    moneyToLvlUp = moneyToLvlUp*1.1 + 50
+    moneyToLvlUp.round
+  }
+  
   */

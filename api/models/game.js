@@ -1,6 +1,4 @@
-const unlocks = [5,10,15];
-
-let  resources=[0,0,0,0];
+const resources=[0,0,0,0];
 
 let lvl = 0;
 let money = 0;

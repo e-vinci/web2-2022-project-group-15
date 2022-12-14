@@ -17,16 +17,16 @@ router.get('/getnbreressource',(req,res)=>{
 });
   
 
-router.post('/setgame', (req, res) => {
+router.post('/setgame', (req) => {
     const money = req?.body?.money !== 0 ? req.body.money : undefined;
     const resources= req?.body?.resources !== 0 ? req.body.resources : undefined;
   
-    if (money !=undefined){
-        const setmoneyToLvlUp = gameCalcul.setmoneyToLvlUp(money);
-        return res.json(setmoneyToLvlUp);}
-    if(resources != undefined){
-        const resources=gameCalcul.setresource(resources)
-        return res.json(resources);
+    if (money !==undefined){
+         gameCalcul.setmoneyToLvlUp(money);
+    }
+    if(resources !== undefined){
+        gameCalcul.setresource(resources)
+        
     }
     
 

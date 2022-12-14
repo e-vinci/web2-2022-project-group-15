@@ -29,7 +29,7 @@ function stringIntro(){
 
 function stringList(){
   let string = "-Gauthier Collard <br/>";
-  string += "-Lotfi \"[insert name]\" <br/>";
+  string += "-Lotfi Mouayna <br/>";
   string += "-Nicolas Heymans <br/>";
   string += "-Julien \"[insert name]\"";
 

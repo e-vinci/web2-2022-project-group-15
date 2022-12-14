@@ -20,15 +20,13 @@ function getmoney(){
     return money
 }
 
-    function getlvl(){
-        return lvl;
-    }
+ 
 
-function getnbreressource1( number){
+function getnbreressource( number){
     if(number <1 || number>4){throw Error}else{return resources[number];}
 }
 
-function resource(number){
+function setresource(number){
   resources[number] += 1;
 }
   
@@ -37,7 +35,6 @@ function upHisLvl(){
   if(money >= moneyToLvlUp){
     money -= moneyToLvlUp;
     lvl += 1;
-
     increase();  
   }
 }
@@ -48,3 +45,11 @@ function increase(){
 }
   
   
+module.exports ={
+  setmoneyToLvlUp,
+  getmoneyToLvlUp,
+  getnbreressource,
+  setresource,
+  upHisLvl,
+  getmoney
+}

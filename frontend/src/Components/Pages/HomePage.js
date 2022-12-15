@@ -31,7 +31,7 @@ function stringList(){
   let string = "-Gauthier Collard <br/>";
   string += "-Lotfi Mouayna <br/>";
   string += "-Nicolas Heymans <br/>";
-  string += "-Julien de Jacquier de Rosée \"[insert name]\"";
+  string += "-Julien de Jacquier de Rosée";
 
   return string;
 }

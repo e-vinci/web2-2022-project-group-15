@@ -1,7 +1,7 @@
 {
   "name": "js-frontend-boilerplate",
   "version": "1.0.0",
-  "description": "web2 frontend boilerplate to facilitate deployment to GitHub pages & authentication",
+  "description": "myJScourse's modern frontend boilerplate to build a phaser game",
   "scripts": {
     "deploy": "npm run build && gh-pages -d dist",
     "dev": "webpack --mode development && cp dist/index.html dist/404.html",

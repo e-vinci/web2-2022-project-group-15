@@ -1,13 +1,12 @@
 const express = require('express');
-const gameCalcul=require('../models/game');
+const gameCalcul = require('../models/game');
 
 const router = express.Router();
 
 router.get('/getnbreressource',(req,res)=>{
-    const resource=req.query.resources;
-    const result=gameCalcul.getnbreressource(resource);
+    const resource = req.query.resources;
+    const result = gameCalcul.getnbreressource(resource);
     return res.json(result);
-
 });
 router.get('/getnbreressource',(req,res)=>{
    

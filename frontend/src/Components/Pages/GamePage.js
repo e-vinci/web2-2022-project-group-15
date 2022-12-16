@@ -1,6 +1,9 @@
 import { clearPage, renderPageTitle } from '../../utils/render';
 
-
+let coal;
+let iron;
+let silver;
+let gold;
 
 // backend variables
 
@@ -10,23 +13,22 @@ const unlockGold = 15;
 
 const lvl = 16;
 
-let coal = 0; // function(0)
-let iron = 0; // function(1)
-let silver = 0; // function(2)
-let gold = 0; // function(3)
-
-
+/*
+let iron = gameCalcul.getnbreressource(2);
+let silver = gameCalcul.getnbreressource(3);
+let gold = gameCalcul.getnbreressource(4);
+*/
 
 // frontend
 
 const GamePage = async () => {
-
   clearPage();
   renderPageTitle('Game');
 
+  getResources();
+
   allInfo();
-  const gameCalcul=await fetch('/api/models/game')
-  let result=gameCalcul. getnbreressource( 1);
+
   const main = document.querySelector('main');
   const genCoal = document.createElement('button');
 
@@ -75,10 +77,27 @@ const GamePage = async () => {
   lvlUpButton.innerText = 'lvl up';
   lvlUpButton.id = 'lvlUpButton'
   lvlUpButton.className = 'btn btn-outline-primary borderbouton';
-   lvlUpButton.addEventListener("click", gameCalcul.upHisLvl());
+  // lvlUpButton.addEventListener("click", gameCalcul.upHisLvl());
   
   main.appendChild(lvlUpButton);
 };
+
+async function getResources(){
+  let number = 1;
+
+  const options = {
+    method: 'GET',
+    body: JSON.stringify({
+      number,
+    }),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  };
+
+  // eslint-disable-next-line prefer-const
+  coal = await fetch('/api/routes/game/getnbreressource', options);
+}
 
 function allInfo(){
   const main = document.querySelector('main');

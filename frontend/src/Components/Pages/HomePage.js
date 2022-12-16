@@ -28,10 +28,10 @@ function stringIntro(){
 }
 
 function stringList(){
-  let string = "-Gauthier Collard <br/>";
-  string += "-Lotfi Mouayna <br/>";
-  string += "-Nicolas Heymans <br/>";
-  string += "-Julien de Jacquier de Rosée";
+  let string =  "-Gauthier Collard <br/>";
+  string +=     "-Nicolas Heymans <br/>";
+  string +=     "-Julien de Jacquier de Rosée <br/>";
+  string +=     "-Lotfi Mouayna <br/>";
 
   return string;
 }

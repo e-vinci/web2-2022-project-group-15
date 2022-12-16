@@ -19,7 +19,7 @@ function renderNavbar() {
   const anonymousUserNavbar = `
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Add your brand here</a>
+          <a class="navbar-brand" href="#">DataMiner</a>
           <button
             class="navbar-toggler"
             type="button"
@@ -40,13 +40,10 @@ function renderNavbar() {
                 <a class="nav-link" href="#" data-uri="/game">Game</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#" data-uri="/new">New Page</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#" data-uri="/login">login page</a>
+                <a class="nav-link" href="#" data-uri="/login">Login page</a>
               </li>  
               <li class="nav-item">
-                <a class="nav-link" href="#" data-uri="/register">register page</a>
+                <a class="nav-link" href="#" data-uri="/register">Register page</a>
               </li>                           
             </ul>
           </div>

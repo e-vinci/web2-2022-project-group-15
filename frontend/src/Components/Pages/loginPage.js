@@ -13,7 +13,7 @@ const LoginPage = () => {
 function renderRegisterForm() {
   const main = document.querySelector('main');
   const form = document.createElement('form');
-
+  
   form.className = 'col-4 offset-4 ';
 
   const username = document.createElement('input');

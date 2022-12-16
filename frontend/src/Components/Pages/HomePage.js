@@ -7,7 +7,7 @@ const HomePage = () => {
   const main = document.querySelector('main');
   
   const intro = document.createElement('div');
-  const list = document.createElement('ul');
+  const list = document.createElement('div');
   const game = document.createElement('div');
 
   intro.innerHTML = stringIntro();
@@ -20,9 +20,9 @@ const HomePage = () => {
 };
 
 function stringIntro(){
-  let string = "welcome to our brand new game \"[insert name]\",";
-  string += "it's a small project we have donne in a feuw weeks for classe.<br/>";
-  string += "we are 4 devoppeurs :";
+  let string = "Welcome to our brand new game : DataMiner !!!";
+  string += " It's a small project we did in a few weeks for our JavaScript class.<br/>";
+  string += "We are 4 developpers :";
 
   return string;
 }
@@ -37,9 +37,9 @@ function stringList(){
 }
 
 function stringGame(){
-  let string = "In or game you play as a guy who want to have a lot of money, "
-  string += "but he has nothing else then a old pickax. "
-  string += "so he goes with it in his garden and min in hoppe of finding somme use full ore ..."
+  let string = "In our game you play a guy who wants to be rich, "
+  string += "but he has nothing else than an old pickaxe. "
+  string += "So he starts digging a hole in his garden in hope of finding something valuable ..."
 
   return string;
 }

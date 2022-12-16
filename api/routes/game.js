@@ -1,6 +1,6 @@
 const express = require('express');
 const gameCalcul = require('../models/game');
-const { getId } = 
+const { getId } = require('../models/users')
 
 const router = express.Router();
 

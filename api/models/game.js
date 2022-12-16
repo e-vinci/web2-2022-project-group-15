@@ -1,4 +1,3 @@
-const { json } = require('express');
 const path = require('node:path');
 
 const jsonDbPath = path.join(__dirname, '/../data/players.json');

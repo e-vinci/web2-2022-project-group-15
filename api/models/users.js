@@ -7,6 +7,7 @@ const jwtSecret = 'ilovemygame!';
 const lifetimeJwt = 24 * 60 * 60 * 1000; // in ms : 24 * 60 * 60 * 1000 = 24h
 
 const jsonDbPath = path.join(__dirname, '/../data/users.json');
+let id;
 
 const defaultUsers = [
   {
@@ -65,7 +66,7 @@ function readOneUserFromUsername(username) {
 
 function createOneUser(username, password) {
   const users = parse(jsonDbPath, defaultUsers);
-  const id = getNextId();
+  id = getNextId();
 
   const createdUser = {
     id,
@@ -92,8 +93,13 @@ function getNextId() {
   return nextId;
 }
 
+function getId(){
+  return id;
+}
+
 module.exports = {
   login,
   register,
   readOneUserFromUsername,
+  getId,
 };

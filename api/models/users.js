@@ -1,6 +1,7 @@
 const jwt = require('jsonwebtoken');
 const path = require('node:path');
 const { parse, serialize } = require('../utils/json');
+const { creatResources } = require('./game')
 
 const jwtSecret = 'ilovemygame!';
 const lifetimeJwt = 24 * 60 * 60 * 1000; // in ms : 24 * 60 * 60 * 1000 = 24h
@@ -64,13 +65,16 @@ function readOneUserFromUsername(username) {
 
 function createOneUser(username, password) {
   const users = parse(jsonDbPath, defaultUsers);
+  const id = getNextId();
 
   const createdUser = {
-    id: getNextId(),
+    id,
     username,
     password,
     
   };
+
+  creatResources(id);
 
   users.push(createdUser);
 

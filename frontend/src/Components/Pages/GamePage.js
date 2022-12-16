@@ -1,6 +1,10 @@
 import { clearPage, renderPageTitle } from '../../utils/render';
 
 
+let coal;
+let iron;
+let silver;
+let gold;
 
 // backend variables
 
@@ -10,13 +14,6 @@ const unlockGold = 15;
 
 const lvl = 16;
 
-let coal = 0; // function(0)
-let iron = 0; // function(1)
-let silver = 0; // function(2)
-let gold = 0; // function(3)
-
-
-
 // frontend
 
 const GamePage = async () => {
@@ -24,9 +21,13 @@ const GamePage = async () => {
   clearPage();
   renderPageTitle('Game');
 
+  // eslint-disable-next-line no-plusplus
+  for(let number = 1; number <= 4; number++){
+    getResources(number);
+  }
+
   allInfo();
-  const gameCalcul=await fetch('/api/models/game')
-  let result=gameCalcul. getnbreressource( 1);
+  
   const main = document.querySelector('main');
   const genCoal = document.createElement('button');
 
@@ -75,9 +76,35 @@ const GamePage = async () => {
   lvlUpButton.innerText = 'lvl up';
   lvlUpButton.id = 'lvlUpButton'
   lvlUpButton.className = 'btn btn-outline-primary borderbouton';
-   lvlUpButton.addEventListener("click", gameCalcul.upHisLvl());
+  // lvlUpButton.addEventListener("click", gameCalcul.upHisLvl());
   
   main.appendChild(lvlUpButton);
+};
+
+async function getResources(number){
+
+  const options = {
+    method: 'GET',
+    body: JSON.stringify({
+      number,
+    }),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  };
+
+  if(number === 1){
+    coal = await fetch('/api/routes/game/getnbreressource', options);
+  }
+  if(number === 2){
+    iron = await fetch('/api/routes/game/getnbreressource', options);
+  }
+  if(number === 3){
+    silver = await fetch('/api/routes/game/getnbreressource', options);
+  }
+  if(number === 4){
+    gold = await fetch('/api/routes/game/getnbreressource', options);
+  }
 };
 
 function allInfo(){
@@ -92,28 +119,28 @@ function allInfo(){
   main.appendChild(showLvl);
 
   const showCoal = document.createElement('div');
-  showCoal.innerHTML = `you have ${coal} coal, it has de value of ${coal*5}$`; 
+  showCoal.innerHTML = `you have ${coal} coal, it has the value of ${coal*5}$`; 
   showCoal.id = 'showCoal'
 
   main.appendChild(showCoal);
 
   if(unlockIron <= lvl){
     const showIron = document.createElement('div');
-    showIron.innerHTML = `you have ${iron} iron, it has de value of ${iron*20}$`; 
+    showIron.innerHTML = `you have ${iron} iron, it has the value of ${iron*20}$`; 
     showIron.id = 'showIron'
 
     main.appendChild(showIron);
   }
   if(unlockSilver <= lvl){
     const showSilver = document.createElement('div');
-    showSilver.innerHTML = `you have ${silver} silver, it has de value of ${silver*100}$`; 
+    showSilver.innerHTML = `you have ${silver} silver, it has the value of ${silver*100}$`; 
     showSilver.id = 'showSilver'
 
     main.appendChild(showSilver);
   }
   if(unlockGold <= lvl){
     const showGold = document.createElement('div');
-    showGold.innerHTML = `you have ${gold} gold, it has de value of ${gold*250}$`;
+    showGold.innerHTML = `you have ${gold} gold, it has the value of ${gold*250}$`;
     showGold.id = 'showGold' 
 
     main.appendChild(showGold);

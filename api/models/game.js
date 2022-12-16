@@ -53,7 +53,7 @@ function getmoney(){
 
  
 
-function getnbreressource( number){
+function getnbreressource(number){
     if(number <1 || number>4){
       throw Error
     }

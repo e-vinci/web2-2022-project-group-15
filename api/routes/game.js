@@ -1,10 +1,14 @@
 const express = require('express');
 const gameCalcul = require('../models/game');
+const { getId } = 
 
 const router = express.Router();
 
 router.get('/getnbreressource',(req,res)=>{
+
+
     const resource = req.query.resources;
+    
     const result = gameCalcul.getnbreressource(resource);
     return res.json(result);
 });

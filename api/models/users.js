@@ -65,7 +65,7 @@ function readOneUserFromUsername(username) {
 
 function createOneUser(username, password) {
   const users = parse(jsonDbPath, defaultUsers);
-  const id = getNextId;
+  const id = getNextId();
 
   const createdUser = {
     id,

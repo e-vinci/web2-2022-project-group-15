@@ -26,7 +26,7 @@ POST {{baseUrl}}/auths/register
 Content-Type: application/json
 
 {
-    "username":"manager",
+    "username":"manager2",
     "password":"manager"
 }
 

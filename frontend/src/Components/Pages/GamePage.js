@@ -1,6 +1,5 @@
 import { clearPage, renderPageTitle } from '../../utils/render';
 
-
 let coal;
 let iron;
 let silver;
@@ -22,9 +21,9 @@ const GamePage = async () => {
   renderPageTitle('Game');
 
   // eslint-disable-next-line no-plusplus
-  for(let number = 1; number <= 4; number++){
-    getResources(number);
-  }
+
+  getResources();
+  
 
   allInfo();
   
@@ -81,30 +80,25 @@ const GamePage = async () => {
   main.appendChild(lvlUpButton);
 };
 
-async function getResources(number){
+async function getResources(){
 
   const options = {
-    method: 'GET',
+    method: 'POST',
     body: JSON.stringify({
-      number,
     }),
     headers: {
       'Content-Type': 'application/json',
     },
   };
 
-  if(number === 1){
-    coal = await fetch('/api/routes/game/getnbreressource', options);
-  }
-  if(number === 2){
-    iron = await fetch('/api/routes/game/getnbreressource', options);
-  }
-  if(number === 3){
-    silver = await fetch('/api/routes/game/getnbreressource', options);
-  }
-  if(number === 4){
-    gold = await fetch('/api/routes/game/getnbreressource', options);
-  }
+  coal = await fetch('/api/routes/game/getCoal', options);
+  
+  iron = await fetch('/api/routes/game/getIron', options);
+ 
+  silver = await fetch('/api/routes/game/getSilver', options);
+  
+  gold = await fetch('/api/routes/game/getGold', options);
+
 };
 
 function allInfo(){
@@ -121,6 +115,7 @@ function allInfo(){
   const showCoal = document.createElement('div');
   showCoal.innerHTML = `you have ${coal} coal, it has the value of ${coal*5}$`; 
   showCoal.id = 'showCoal'
+  showCoal.class = 'p-2 bg-light border'
 
   main.appendChild(showCoal);
 
@@ -128,6 +123,7 @@ function allInfo(){
     const showIron = document.createElement('div');
     showIron.innerHTML = `you have ${iron} iron, it has the value of ${iron*20}$`; 
     showIron.id = 'showIron'
+    showIron.class = 'p-2 bg-light border'
 
     main.appendChild(showIron);
   }
@@ -135,6 +131,7 @@ function allInfo(){
     const showSilver = document.createElement('div');
     showSilver.innerHTML = `you have ${silver} silver, it has the value of ${silver*100}$`; 
     showSilver.id = 'showSilver'
+    showSilver.class = 'p-2 bg-light border'
 
     main.appendChild(showSilver);
   }
@@ -142,6 +139,7 @@ function allInfo(){
     const showGold = document.createElement('div');
     showGold.innerHTML = `you have ${gold} gold, it has the value of ${gold*250}$`;
     showGold.id = 'showGold' 
+    showGold.class = 'p-2 bg-light border'
 
     main.appendChild(showGold);
   }

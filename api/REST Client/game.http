@@ -1,0 +1,9 @@
+@baseUrl = http://localhost:3000
+
+### get resources
+POST {{baseUrl}}/game/getCoal
+Content-Type: application/json
+
+{
+    "id": 1,
+}

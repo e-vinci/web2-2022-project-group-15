@@ -111,35 +111,35 @@ function allInfo(){
   showLvl.id = 'showlvl'
 
   main.appendChild(showLvl);
-
+  
   const showCoal = document.createElement('div');
-  showCoal.innerHTML = `you have ${coal} coal, it has the value of ${coal*5}$`; 
+  showCoal.innerHTML = `You have ${coal} coal, it has a value of ${coal*5} $`; 
   showCoal.id = 'showCoal'
-  showCoal.class = 'p-2 bg-light border'
+  showCoal.className = 'p-2 bg-light border'
 
   main.appendChild(showCoal);
 
   if(unlockIron <= lvl){
     const showIron = document.createElement('div');
-    showIron.innerHTML = `you have ${iron} iron, it has the value of ${iron*20}$`; 
+    showIron.innerHTML = `You have ${iron} iron, it has a value of ${iron*20}$`; 
     showIron.id = 'showIron'
-    showIron.class = 'p-2 bg-light border'
+    showIron.className = 'p-2 bg-light border'
 
     main.appendChild(showIron);
   }
   if(unlockSilver <= lvl){
     const showSilver = document.createElement('div');
-    showSilver.innerHTML = `you have ${silver} silver, it has the value of ${silver*100}$`; 
+    showSilver.innerHTML = `You have ${silver} silver, it has a value of ${silver*100}$`; 
     showSilver.id = 'showSilver'
-    showSilver.class = 'p-2 bg-light border'
+    showSilver.className = 'p-2 bg-light border'
 
     main.appendChild(showSilver);
   }
   if(unlockGold <= lvl){
     const showGold = document.createElement('div');
-    showGold.innerHTML = `you have ${gold} gold, it has the value of ${gold*250}$`;
+    showGold.innerHTML = `You have ${gold} gold, it has a value of ${gold*250}$`;
     showGold.id = 'showGold' 
-    showGold.class = 'p-2 bg-light border'
+    showGold.className = 'p-2 bg-light border'
 
     main.appendChild(showGold);
   }

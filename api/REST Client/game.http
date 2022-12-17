@@ -1,7 +1,7 @@
 @baseUrl = http://localhost:3000
 
-### get Coal
-POST {{baseUrl}}/game/getCoal
+### get player
+POST {{baseUrl}}/game/getPlayer
 Content-Type: application/json
 
 

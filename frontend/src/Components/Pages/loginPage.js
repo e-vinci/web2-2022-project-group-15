@@ -75,7 +75,7 @@ function renderRegisterForm() {
   const registerPage = document.createElement('a');
   registerPage.href = '/register';
   registerPage.className = 'btn btn-outline-primary borderbouton';
-  registerPage.innerText = 'register';
+  registerPage.innerText = 'Register';
 
   const noAccount = document.createElement('h5');
   noAccount.innerText = 'No Account ? Register you!'

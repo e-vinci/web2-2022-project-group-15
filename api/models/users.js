@@ -1,12 +1,11 @@
 const jwt = require('jsonwebtoken');
-// const jwtDecode = require('jwt-decode');
+const jwtDecode = require('jwt-decode');
 const path = require('node:path');
 
 const { parse, serialize } = require('../utils/json');
 const { creatResources } = require('./game')
 
 let authenticatedUser = null;
-let id;
 
 const jwtSecret = 'ilovemygame!';
 const lifetimeJwt = 24 * 60 * 60 * 1000; // in ms : 24 * 60 * 60 * 1000 = 24h
@@ -27,7 +26,7 @@ function login(username, password) {
   if (userFound.password !== password) return undefined;
 
   const token = jwt.sign( // permet de créer le token et ses 3 parties
-    { username }, // session data added to the payload (payload : part 2 of a JWT)
+    { username, id: userFound.id }, // session data added to the payload (payload : part 2 of a JWT)
     jwtSecret, // secret used for the signature (signature part 3 of a JWT)
     { expiresIn: lifetimeJwt }, // lifetime of the JWT (added to the JWT payload)
   );
@@ -70,7 +69,7 @@ function readOneUserFromUsername(username) {
 
 function createOneUser(username, password) {
   const users = parse(jsonDbPath, defaultUsers);
-  id = getNextId();
+  const id = getNextId();
 
   const createdUser = {
     id,
@@ -98,6 +97,9 @@ function getNextId() {
 }
 
 function getId(){
+  const decodedToken = jwtDecode(authenticatedUser.token, jwtSecret);
+  const {id} = decodedToken;
+
   console.log("id", id);
 
   return id;

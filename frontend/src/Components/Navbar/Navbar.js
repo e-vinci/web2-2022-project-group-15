@@ -1,6 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import { Navbar as BootstrapNavbar } from 'bootstrap';
 import { getAuthenticatedUser, isAuthenticated } from '../../utils/auths';
+import logo from '../../img/logo.png';
 
 /**
  * Render the Navbar which is styled by using Bootstrap
@@ -15,11 +16,15 @@ const Navbar = () => {
 
 function renderNavbar() {
   const authenticatedUser = getAuthenticatedUser();
-
+  const logoPicture = new Image();
+  logoPicture.src = logo;
+  
   const anonymousUserNavbar = `
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  
         <div class="container-fluid">
           <a class="navbar-brand" href="#">DataMiner</a>
+          <img src="${logoPicture.src}">
           <button
             class="navbar-toggler"
             type="button"

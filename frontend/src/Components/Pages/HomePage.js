@@ -11,8 +11,11 @@ const HomePage = () => {
   const game = document.createElement('div');
 
   intro.innerHTML = stringIntro();
+  intro.className = "m-3";
   list.innerHTML = stringList();
+  list.className = "m-3";
   game.innerHTML = stringGame();
+  game.className = "m-3";
 
   main.appendChild(intro);
   main.appendChild(list);

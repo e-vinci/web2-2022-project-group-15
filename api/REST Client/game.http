@@ -3,3 +3,8 @@
 ### get Coal
 POST {{baseUrl}}/game/getCoal
 Content-Type: application/json
+
+
+### set Coal
+POST {{baseUrl}}/game/setCoal
+Content-Type: application/json

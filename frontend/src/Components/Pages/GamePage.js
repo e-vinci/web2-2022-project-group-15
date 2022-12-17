@@ -20,11 +20,6 @@ const GamePage = async () => {
   clearPage();
   renderPageTitle('Game');
 
-  // eslint-disable-next-line no-plusplus
-
-  getResources();
-  
-
   allInfo();
   
   const main = document.querySelector('main');
@@ -80,27 +75,6 @@ const GamePage = async () => {
   main.appendChild(lvlUpButton);
 };
 
-async function getResources(){
-
-  const options = {
-    method: 'POST',
-    body: JSON.stringify({
-    }),
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  };
-
-  coal = await fetch('/api/routes/game/getCoal', options);
-  
-  iron = await fetch('/api/routes/game/getIron', options);
- 
-  silver = await fetch('/api/routes/game/getSilver', options);
-  
-  gold = await fetch('/api/routes/game/getGold', options);
-
-};
-
 function allInfo(){
   const main = document.querySelector('main');
 
@@ -111,6 +85,8 @@ function allInfo(){
   showLvl.id = 'showlvl'
 
   main.appendChild(showLvl);
+
+  coal = getValueOfCoal();
   
   const showCoal = document.createElement('div');
   showCoal.innerHTML = `You have ${coal} coal, it has a value of ${coal*5} $`; 
@@ -151,6 +127,26 @@ function allInfo(){
   main.appendChild(showMoney);
 }
 
-// backend fuctions
+async function getValueOfCoal(){
+
+  const options = {
+    method: 'POST',
+    body: JSON.stringify({
+    }),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  };
+
+  coal = await fetch('/api/routes/game/getCoal', options);
+  console.log(coal);
+  return coal;
+};
+  
+  // iron = await fetch('/api/routes/game/getIron', options);
+ 
+  // silver = await fetch('/api/routes/game/getSilver', options);
+  
+  // gold = await fetch('/api/routes/game/getGold', options);
 
 export default GamePage;

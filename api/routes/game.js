@@ -31,7 +31,7 @@ router.post('/getCoal',(req,res)=>{
     return res.json(result);
 });
 
-router.post('/setCoal', (req,res)=>{
+router.post('/setCoal', () =>{
     setCoal(getId());
 });
 
@@ -42,7 +42,7 @@ router.post('/getIron',(req,res)=>{
     return res.json(result);
 });
 
-router.post('/setIron', (req,res)=>{
+router.post('/setIron', () =>{
     setIron(getId());
 });
 
@@ -53,7 +53,7 @@ router.post('/getSilver',(req,res)=>{
     return res.json(result);
 });
 
-router.post('/setSilver', (req,res)=>{
+router.post('/setSilver', ()=>{
     setSilver(getId());
 });
 
@@ -64,7 +64,7 @@ router.post('/getGold',(req,res)=>{
     return res.json(result);
 }); 
 
-router.post('/setGold', (req,res)=>{
+router.post('/setGold', ()=>{
     setGold(getId());
 });
 
@@ -75,7 +75,7 @@ router.post('/getMoney',(req,res)=>{
     return res.json(result);
 }); 
 
-router.post('/sellResources',(req,res)=>{
+router.post('/sellResources',()=>{
     sellResources(getId());
 });
 
@@ -93,7 +93,7 @@ router.post('/getLvl',(req,res)=>{
     return res.json(result);
 });
 
-router.post('/lvlUp',(req,res)=>{
+router.post('/lvlUp',()=>{
     lvlUp(getId());
 });
 

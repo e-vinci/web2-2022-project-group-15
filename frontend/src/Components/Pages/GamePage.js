@@ -60,7 +60,7 @@ function allInfo(){
   // generateur1.addEventListener("click", ()=>{resource(1)});
   
   const showCoal = document.createElement('div');
-  showCoal.innerHTML = `You have ${coal} coal, it has a value of ${coal*5} $`; 
+  showCoal.innerHTML = `You have ${getValueOfCoal()} coal, it has a value of ${coal*5} $`; 
   showCoal.id = 'showCoal'
   showCoal.className = 'p-2 bg-light border'
   
@@ -129,19 +129,9 @@ function allInfo(){
 }
 
 async function getValueOfCoal(){
-
-  const options = {
-    method: 'POST',
-    body: JSON.stringify({
-    }),
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  };
-
-  coal = await fetch('/api/routes/game/getCoal', options);
-  console.log(coal);
-  return coal;
+  const rc = await fetch('/api/routes/game/getCoal');
+  const coalValue = await rc.json()
+  return coalValue;
 };
   
   // iron = await fetch('/api/routes/game/getIron', options);

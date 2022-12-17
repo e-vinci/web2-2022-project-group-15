@@ -8,3 +8,7 @@ Content-Type: application/json
 ### set Coal
 POST {{baseUrl}}/game/setCoal
 Content-Type: application/json
+
+### money per lvl
+POST {{baseUrl}}/game/lvlUp
+Content-Type: application/json

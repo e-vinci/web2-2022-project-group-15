@@ -1,13 +1,17 @@
 const jwt = require('jsonwebtoken');
+// const jwtDecode = require('jwt-decode');
 const path = require('node:path');
+
 const { parse, serialize } = require('../utils/json');
 const { creatResources } = require('./game')
+
+let authenticatedUser = null;
+let id;
 
 const jwtSecret = 'ilovemygame!';
 const lifetimeJwt = 24 * 60 * 60 * 1000; // in ms : 24 * 60 * 60 * 1000 = 24h
 
 const jsonDbPath = path.join(__dirname, '/../data/users.json');
-let id;
 
 const defaultUsers = [
   {
@@ -28,7 +32,7 @@ function login(username, password) {
     { expiresIn: lifetimeJwt }, // lifetime of the JWT (added to the JWT payload)
   );
 
-  const authenticatedUser = {
+    authenticatedUser = {
     username,
     token,
   };
@@ -48,7 +52,7 @@ function register(username, password) {
     { expiresIn: lifetimeJwt }, // lifetime of the JWT (added to the JWT payload)
   );
 
-  const authenticatedUser = {
+    authenticatedUser = {
     username,
     token,
   };
@@ -94,7 +98,10 @@ function getNextId() {
 }
 
 function getId(){
+  console.log("id", id);
+
   return id;
+  
 }
 
 module.exports = {

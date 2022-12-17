@@ -16,7 +16,7 @@ const defaultPlayer = [
   {
     playerId: 1,
 
-    coal: 0,
+    coal: 5,
     iron: 0,
     silver: 0,
     gold: 0,
@@ -56,85 +56,83 @@ function setmoneyToLvlUp(id, number){
     moneyToLvlUp=number
 }
 
-function getmoneyToLvlUp(id){
+function getmoneyToLvlUp(){
     return moneyToLvlUp;
 }
 
-function getmoney(id){
+function getmoney(){
     return money
 }
 
- 
-/*
-function getnbreressource(id, number){
-  console.log("i'm in");
-  const list = parse(jsonDbPath, defaultPlayer);
-  
-  const playerFound = list.find((player) => player.id === id);
-
-  if(number === "1"){
-    console.log("coal");
-    return playerFound.coal
-  }
-
-  if(number === 2){
-    return playerFound.iron
-  }
-
-  if(number === 3){
-    return playerFound.silver
-  }
-
-  if(number === 4){
-    return playerFound.Gold
-  }
-  throw Error;
-}
-*/
-
 function getCoal(id){
+  console.log("i'm in");
+
   const list = parse(jsonDbPath, defaultPlayer);
-  const playerFound = list.find((player) => player.id === id);
+  const playerFound = list.find((player) => player.playerId === id);
+
+  if(playerFound === undefined){
+    throw Error;
+  }
 
   return playerFound.coal
 }
 
 function getIron(id){
   const list = parse(jsonDbPath, defaultPlayer);
-  const playerFound = list.find((player) => player.id === id);
+  const playerFound = list.find((player) => player.playerId === id);
 
   return playerFound.iron
 }
 
 function getSilver(id){
   const list = parse(jsonDbPath, defaultPlayer);
-  const playerFound = list.find((player) => player.id === id);
+  const playerFound = list.find((player) => player.playerId === id);
 
   return playerFound.silver
 }
 
 function getGold(id){
   const list = parse(jsonDbPath, defaultPlayer);
-  const playerFound = list.find((player) => player.id === id);
+  const playerFound = list.find((player) => player.playerId === id);
 
   return playerFound.gold
 }
 
 
 function setCoal(id){
-  
+  const list = parse(jsonDbPath, defaultPlayer);
+  const playerFound = list.find((player) => player.playerId === id);
+
+  coal = playerFound.coal;
+  coal += 1;
+  playerFound.coal = coal;
 }
 
 function setIron(id){
-  
+  const list = parse(jsonDbPath, defaultPlayer);
+  const playerFound = list.find((player) => player.playerId === id);
+
+  iron = playerFound.iron;
+  iron += 1;
+  playerFound.iron = iron;
 }
 
 function setSilver(id){
-  
+  const list = parse(jsonDbPath, defaultPlayer);
+  const playerFound = list.find((player) => player.playerId === id);
+
+  silver = playerFound.silver;
+  silver += 1;
+  playerFound.silver = silver;
 }
 
-function setGolde(id){
-  
+function setGold(id){
+  const list = parse(jsonDbPath, defaultPlayer);
+  const playerFound = list.find((player) => player.playerId === id);
+
+  gold = playerFound.gold;
+  gold += 1;
+  playerFound.gold = gold;
 }
   
   
@@ -156,14 +154,17 @@ module.exports ={
   creatResources,
   setmoneyToLvlUp,
   getmoneyToLvlUp,
+
   getCoal,
   getIron,
   getSilver,
   getGold,
+
   setCoal,
   setIron,
   setSilver,
-  setGolde,
+  setGold,
+
   upHisLvl,
   getmoney
 }

@@ -80,10 +80,13 @@ function renderRegisterForm() {
   const noAccount = document.createElement('h5');
   noAccount.innerText = 'No Account ? Register you!'
 
+  const space = document.createElement('hr');
+
 
   main.appendChild(form);
   form.appendChild(div1);
   div1.appendChild(titlePage);
+  form.appendChild(space);
   form.appendChild(div2);
   div2.appendChild(div3);
   div3.appendChild(div4);
@@ -104,7 +107,6 @@ function renderRegisterForm() {
   main.appendChild(div13);
   div13.appendChild(div14);
   div14.appendChild(registerPage);
-
   
   form.addEventListener('submit', onLogin);
 }

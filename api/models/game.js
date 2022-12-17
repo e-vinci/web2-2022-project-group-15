@@ -16,7 +16,7 @@ const defaultPlayer = [
   {
     playerId: 1,
 
-    coal: 5,
+    coal: 0,
     iron: 0,
     silver: 0,
     gold: 0,
@@ -27,7 +27,7 @@ const defaultPlayer = [
   },
 ];
 
-function creatResources(id){
+function creatPlayer(id){
 
   const list = parse(jsonDbPath, defaultPlayer);
 
@@ -151,7 +151,7 @@ function increase(id){
   
   
 module.exports ={
-  creatResources,
+  creatPlayer,
   setmoneyToLvlUp,
   getmoneyToLvlUp,
 

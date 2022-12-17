@@ -3,7 +3,7 @@ const jwtDecode = require('jwt-decode');
 const path = require('node:path');
 
 const { parse, serialize } = require('../utils/json');
-const { creatResources } = require('./game')
+const { creatPlayer } = require('./game')
 
 let authenticatedUser = null;
 
@@ -78,7 +78,7 @@ function createOneUser(username, password) {
     
   };
 
-  creatResources(id);
+  creatPlayer(id);
 
   users.push(createdUser);
 

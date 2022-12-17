@@ -1,5 +1,19 @@
 const express = require('express');
-const { creatResources, setmoneyToLvlUp, getmoneyToLvlUp, getCoal, getIron, getSilver, getGold, setCoal, setIron, setSilver, setGold, upHisLvl, getmoney } = require('../models/game');
+
+const { creatPlayer, 
+    setmoneyToLvlUp, 
+    getmoneyToLvlUp, 
+    getCoal, 
+    getIron, 
+    getSilver, 
+    getGold, 
+    setCoal, 
+    setIron, 
+    setSilver, 
+    setGold, 
+    upHisLvl, 
+    getmoney } = require('../models/game');
+
 const { getId } = require('../models/users');
 
 const router = express.Router();

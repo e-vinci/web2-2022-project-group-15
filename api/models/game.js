@@ -1,4 +1,5 @@
 const path = require('node:path');
+const add = require('lodash.add');
 
 const jsonDbPath = path.join(__dirname, '/../data/players.json');
 const { parse, serialize } = require('../utils/json');
@@ -58,7 +59,7 @@ function setCoal(id){
   }
 
   let resource = playerFound.coal;
-  resource += 1;
+  resource= add(resource,1);
   playerFound.coal = resource;
 
   serialize(jsonDbPath, list);
@@ -75,7 +76,7 @@ function setIron(id){
   }
 
   let resource = playerFound.iron;
-  resource += 1;
+  resource = add(resource,1);
   playerFound.iron = resource;
 
   serialize(jsonDbPath, list);

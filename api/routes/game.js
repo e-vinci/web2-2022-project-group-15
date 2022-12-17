@@ -1,13 +1,7 @@
 const express = require('express');
 
 const {
-    getCoal,
-    getIron,
-    getSilver,
-    getGold,
-    getmoney,
-    getLvl,
-    getPriceLvlUp,
+    getPlayer,
 
     setCoal,
     setIron,
@@ -25,76 +19,45 @@ const router = express.Router();
 
 // COAL
 
-router.post('/getCoal',(req,res)=>{
-    console.log("route");
-    const result = getCoal(getId());
-    return res.json(result);
-});
-
-router.post('/setCoal', (req,res)=>{
+router.post('/setCoal', () =>{
     setCoal(getId());
 });
 
 // IRON
 
-router.post('/getIron',(req,res)=>{
-    const result = getIron(getId());
-    return res.json(result);
-});
-
-router.post('/setIron', (req,res)=>{
+router.post('/setIron', () =>{
     setIron(getId());
 });
 
 // SILVER
 
-router.post('/getSilver',(req,res)=>{
-    const result = getSilver(getId());
-    return res.json(result);
-});
-
-router.post('/setSilver', (req,res)=>{
+router.post('/setSilver', ()=>{
     setSilver(getId());
 });
 
-// GOLD
+// GOLD 
 
-router.post('/getGold',(req,res)=>{
-    const result = getGold(getId());
-    return res.json(result);
-}); 
-
-router.post('/setGold', (req,res)=>{
+router.post('/setGold', ()=>{
     setGold(getId());
 });
 
 // MONEY
 
-router.post('/getMoney',(req,res)=>{
-    const result = getmoney(getId());
-    return res.json(result);
-}); 
-
-router.post('/sellResources',(req,res)=>{
+router.post('/sellResources',()=>{
     sellResources(getId());
-});
-
-// PRICE
-
-router.post('/getPriceLvlUp',(req,res)=>{
-    const result = getPriceLvlUp(getId());
-    return res.json(result);
 });
 
 // LVL
 
-router.post('/getLvl',(req,res)=>{
-    const result = getLvl(getId());
-    return res.json(result);
-});
-
-router.post('/lvlUp',(req,res)=>{
+router.post('/lvlUp',()=>{
     lvlUp(getId());
 });
+
+// PLAYER
+
+router.post('/getPlayer', (req, res) => {
+    const player = getPlayer(getId());
+    return res.json(player);
+})
 
 module.exports=router;

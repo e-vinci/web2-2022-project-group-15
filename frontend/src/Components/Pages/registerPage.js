@@ -8,7 +8,6 @@ const RegisterPage = () => {
   renderPageTitle('Register');
   renderRegisterForm();
 };
-// let errorPassword = false;
 
 function renderRegisterForm() {
   const main = document.querySelector('main');
@@ -80,7 +79,6 @@ async function onRegister(e) {
   
   // méthode pour conparer 2 mots de passes
   if (password !== password2) {
-    // errorPassword = true;
     renderError('Passwords do not match');
     return ;
   };

@@ -12,10 +12,11 @@ const renderPageTitle = (title) => {
 };
 
 const renderError = (error) => {
-  const main = document.querySelector('main');
+  const div = document.querySelector('divError');
   const errorMessage = document.createElement('p');
+  errorMessage.style = 'color: red';
   errorMessage.innerText = error
-  main.appendChild(errorMessage);
+  div.appendChild(errorMessage);
 }
 
 export { clearPage, renderPageTitle, renderError };

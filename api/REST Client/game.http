@@ -1,5 +1,14 @@
 @baseUrl = http://localhost:3000
 
-### get Coal
-POST {{baseUrl}}/game/getCoal
+### get player
+POST {{baseUrl}}/game/getPlayer
+Content-Type: application/json
+
+
+### set Coal
+POST {{baseUrl}}/game/setCoal
+Content-Type: application/json
+
+### money per lvl
+POST {{baseUrl}}/game/lvlUp
 Content-Type: application/json

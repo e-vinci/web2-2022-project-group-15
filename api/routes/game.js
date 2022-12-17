@@ -1,53 +1,63 @@
 const express = require('express');
 
-const { creatPlayer, 
-    setmoneyToLvlUp, 
-    getmoneyToLvlUp, 
-    getCoal, 
-    getIron, 
-    getSilver, 
-    getGold, 
-    setCoal, 
-    setIron, 
-    setSilver, 
-    setGold, 
-    upHisLvl, 
-    getmoney } = require('../models/game');
+const {
+    getPlayer,
+
+    setCoal,
+    setIron,
+    setSilver,
+    setGold,
+
+    sellResources,
+
+    lvlUp,
+    } = require('../models/game');
 
 const { getId } = require('../models/users');
 
 const router = express.Router();
 
-router.post('/getCoal',(req,res)=>{
-    console.log("rout")
-    const result = getCoal(getId());
-    return res.json(result);
+// COAL
+
+router.post('/setCoal', () =>{
+    setCoal(getId());
 });
 
-router.post('/getIron',(req,res)=>{
-    const result = getIron(getId());
-    return res.json(result);
+// IRON
+
+router.post('/setIron', () =>{
+    setIron(getId());
 });
 
-router.post('/getSilver',(req,res)=>{
-    const result = getSilver(getId());
-    return res.json(result);
+// SILVER
+
+router.post('/setSilver', ()=>{
+    setSilver(getId());
 });
 
-router.post('/getGolde',(req,res)=>{
-    const result = getGold(getId());
-    return res.json(result);
-});
-  
+// GOLD 
 
-router.post('/setgame', (req) => {
-    const money = req?.body?.money !== 0 ? req.body.money : undefined;
-  
-    if (money !==undefined){
-         setmoneyToLvlUp(id, money);
-    }
-    
-  });
-  
+router.post('/setGold', ()=>{
+    setGold(getId());
+});
+
+// MONEY
+
+router.post('/sellResources',()=>{
+    sellResources(getId());
+});
+
+// LVL
+
+router.post('/lvlUp',()=>{
+    lvlUp(getId());
+});
+
+// PLAYER
+
+router.post('/getPlayer', (req, res) => {
+    const player = getPlayer(getId());
+    return res.json(player);
+})
 
 module.exports=router;

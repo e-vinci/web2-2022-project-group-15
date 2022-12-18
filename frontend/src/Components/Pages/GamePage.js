@@ -23,7 +23,7 @@ function allInfo(){
   // PLAYER STATS
   const player = getThePlayer();
 
-  const playerLvl = 25;
+  const playerLvl = player.lvl;
   const playerCoal = player.coal;
   const playerIron = player.iron;
   const playerSilver = player.silver;

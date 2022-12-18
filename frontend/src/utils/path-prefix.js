@@ -1,3 +1,10 @@
+/**
+ * Title: <js-frontend>
+ * Author: <Baroni>
+ * Date: <10/12/2022> 
+ * Availability <https://github.com/e-vinci/js-frontend-boilerplate/blob/main/src/utils/path-prefix.js>
+ */
+
 const usePathPrefix = (path) => {
     if (process.env.BUILD_MODE !== 'production') return path;
   

@@ -5,7 +5,7 @@ const path = require('node:path');
 const { parse, serialize } = require('../utils/json');
 const { creatPlayer } = require('./game')
 
-let authenticatedUser = null;
+let authenticatedUser;
 
 const jwtSecret = 'ilovemygame!';
 const lifetimeJwt = 24 * 60 * 60 * 1000; // in ms : 24 * 60 * 60 * 1000 = 24h
@@ -25,7 +25,7 @@ function login(username, password) {
   if (!userFound) return undefined;
   if (userFound.password !== password) return undefined;
 
-  const token = jwt.sign( // permet de créer le token et ses 3 parties
+  const token = jwt.sign(
     { username, id: userFound.id }, // session data added to the payload (payload : part 2 of a JWT)
     jwtSecret, // secret used for the signature (signature part 3 of a JWT)
     { expiresIn: lifetimeJwt }, // lifetime of the JWT (added to the JWT payload)
@@ -43,15 +43,15 @@ function register(username, password) {
   const userFound = readOneUserFromUsername(username);
   if (userFound) return undefined;
 
-  createOneUser(username, password);
+   const newUser = createOneUser(username, password);
 
   const token = jwt.sign(
-    { username }, // session data added to the payload (payload : part 2 of a JWT)
+    { username, id: newUser.id }, // session data added to the payload (payload : part 2 of a JWT)
     jwtSecret, // secret used for the signature (signature part 3 of a JWT)
     { expiresIn: lifetimeJwt }, // lifetime of the JWT (added to the JWT payload)
   );
 
-    authenticatedUser = {
+  authenticatedUser = {
     username,
     token,
   };
@@ -97,10 +97,13 @@ function getNextId() {
 }
 
 function getId(){
+  if(authenticatedUser === undefined){
+    console.log("empty");
+  }
   const decodedToken = jwtDecode(authenticatedUser.token, jwtSecret);
   const {id} = decodedToken;
 
-  console.log("id", id);
+  console.log("found id = ", id);
 
   return id;
   

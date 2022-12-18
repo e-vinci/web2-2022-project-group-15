@@ -63,3 +63,9 @@
 
 ## Revues de projets par les pairs
 - Une fois votre projet soumis, vous devrez réaliser un minimum de 5 revues qui vous seront attribuées automatiquement via le site du cours.
+
+
+## Documentation APi Lodash
+lien : https://lodash.com/docs/4.17.15
+## Lien vers le projet
+Lien: https://github.com/e-vinci/web2-2022-project-group-15

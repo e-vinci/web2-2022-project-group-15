@@ -1,17 +1,10 @@
 import { clearPage, renderPageTitle } from '../../utils/render';
 
-let coal;
-let iron;
-let silver;
-let gold;
-
 // backend variables
 
 const unlockIron = 5;
 const unlockSilver = 10;
 const unlockGold = 15;
-
-const lvl = 16;
 
 // frontend
 
@@ -21,16 +14,26 @@ const GamePage = async () => {
   renderPageTitle('Game');
 
   allInfo();
-
 };
 
 function allInfo(){
   const main = document.querySelector('main');
   const grid = document.createElement('div');
 
+  // PLAYER STATS
+  const player = getThePlayer();
+
+  const playerLvl =player.lvl;
+  const playerCoal = JSON.stringify(player.coal);
+  const playerIron = player.iron;
+  const playerSilver = player.silver;
+  const playerGold = player.gold;
+  const playerMoney = player.money;
+
+  // LVL
   const showLvl = document.createElement('div');
 
-  // showLvl.innerHTML = `Level ${lvl}`; 
+  showLvl.innerHTML = `Level ${playerLvl}`; 
   showLvl.id = 'showlvl'
 
   const lvlUpButton = document.createElement('button');
@@ -40,7 +43,7 @@ function allInfo(){
   // lvlUpButton.addEventListener("click", gameCalcul.upHisLvl());
 
   const showMoney = document.createElement('div');
-  // showMoney.innerHTML = `you have in total ${money}$`; 
+  showMoney.innerHTML = `you have in total ${playerMoney}$`; 
   showMoney.id = 'showMoney';
 
   const statsRow = document.createElement('div');
@@ -50,8 +53,6 @@ function allInfo(){
   statsRow.appendChild(showMoney);
 
   grid.appendChild(statsRow);
-
-  coal = getValueOfCoal();
   
   const genCoal = document.createElement('button');
   genCoal.innerText = 'Mine';
@@ -60,7 +61,7 @@ function allInfo(){
   // generateur1.addEventListener("click", ()=>{resource(1)});
   
   const showCoal = document.createElement('div');
-  showCoal.innerHTML = `You have ${getValueOfCoal()} coal, it has a value of ${coal*5} $`; 
+  showCoal.innerHTML = `You have ${playerCoal} coal, it has a value of ${playerCoal*5} $`; 
   showCoal.id = 'showCoal'
   showCoal.className = 'p-2 bg-light border'
   
@@ -70,7 +71,7 @@ function allInfo(){
   coalRow.appendChild(genCoal);
   grid.appendChild(coalRow);
 
-  if(unlockIron <= lvl){
+  if(unlockIron <= playerLvl){
     const genIron = document.createElement('button');
     genIron.innerText = 'Mine';
     genIron.id = 'genIron'
@@ -78,7 +79,7 @@ function allInfo(){
     // generateur2.addEventListener("click", ()=>{resource(2)});
   
     const showIron = document.createElement('div');
-    showIron.innerHTML = `You have ${iron} iron, it has a value of ${iron*20}$`; 
+    showIron.innerHTML = `You have ${playerIron} iron, it has a value of ${playerIron*20}$`; 
     showIron.id = 'showIron'
     showIron.className = 'p-2 bg-light border'
 
@@ -88,7 +89,7 @@ function allInfo(){
     ironRow.appendChild(genIron);
     grid.appendChild(ironRow);
   }
-  if(unlockSilver <= lvl){
+  if(unlockSilver <= playerLvl){
     const genSilver = document.createElement('button');
     genSilver.innerText = 'Mine';
     genSilver.id = 'genSilver'
@@ -96,7 +97,7 @@ function allInfo(){
     // generateur3.addEventListener("click", ()=>{resource(3)});
   
     const showSilver = document.createElement('div');
-    showSilver.innerHTML = `You have ${silver} silver, it has a value of ${silver*100}$`; 
+    showSilver.innerHTML = `You have ${playerSilver} silver, it has a value of ${playerSilver*100}$`; 
     showSilver.id = 'showSilver'
     showSilver.className = 'p-2 bg-light border'
 
@@ -106,7 +107,7 @@ function allInfo(){
     silverRow.appendChild(genSilver);
     grid.appendChild(silverRow);
   }
-  if(unlockGold <= lvl){
+  if(unlockGold <= playerLvl){
     const genGold = document.createElement('button');
     genGold.innerText = 'Mine';
     genGold.id = 'genGold'
@@ -114,7 +115,7 @@ function allInfo(){
     // generateur4.addEventListener("click", ()=>{resource(4)});
     
     const showGold = document.createElement('div');
-    showGold.innerHTML = `You have ${gold} gold, it has a value of ${gold*250}$`;
+    showGold.innerHTML = `You have ${playerGold} gold, it has a value of ${playerGold*250}$`;
     showGold.id = 'showGold' 
     showGold.className = 'p-2 bg-light border'
 
@@ -128,16 +129,19 @@ function allInfo(){
   main.appendChild(grid);
 }
 
-async function getValueOfCoal(){
-  const rc = await fetch('/api/routes/game/getCoal');
-  const coalValue = await rc.json()
-  return coalValue;
+async function getThePlayer(){
+
+  const options = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  };
+
+  const jsonRespons = await fetch('/api/game/getPlayer', options);
+  const response = await jsonRespons.json();
+
+  return response;
 };
-  
-  // iron = await fetch('/api/routes/game/getIron', options);
- 
-  // silver = await fetch('/api/routes/game/getSilver', options);
-  
-  // gold = await fetch('/api/routes/game/getGold', options);
 
 export default GamePage;

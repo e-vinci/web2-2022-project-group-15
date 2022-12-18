@@ -93,7 +93,7 @@ function setSilver(id){
   }
 
   let resource = playerFound.silver;
-  resource += 1;
+  resource = add(resource,1);
   playerFound.silver = resource;
 
   serialize(jsonDbPath, list);
@@ -110,7 +110,7 @@ function setGold(id){
   }
 
   let resource = playerFound.gold;
-  resource += 1;
+  resource = add(resource,1);
   playerFound.gold = resource;
 
   serialize(jsonDbPath, list);
@@ -128,10 +128,10 @@ function sellResources(id){
 
   let totalMoney = playerFound.money;
 
-  totalMoney += playerFound.coal * priceCoal;
-  totalMoney += playerFound.iron * priceIron;
-  totalMoney += playerFound.silver * priceSilver;
-  totalMoney += playerFound.gold * priceGold;
+  totalMoney = add(totalMoney, playerFound.coal * priceCoal);
+  totalMoney = add(totalMoney, playerFound.iron * priceIron);
+  totalMoney = add(totalMoney, playerFound.silver * priceSilver);
+  totalMoney = add(totalMoney, playerFound.gold * priceGold);
 
   playerFound.coal = 0;
   playerFound.iron = 0;
@@ -161,7 +161,7 @@ function lvlUp(id){
   if(cost < newMoney){
     playerFound.money = newMoney-cost;
 
-    newLvl +=1;
+    newLvl = add(newLvl, 1);
     playerFound.lvl = newLvl;
 
     setPriceLvlUp(id);
@@ -181,7 +181,7 @@ function setPriceLvlUp(id){
   }
 
   const price = playerFound.moneyLvlUp;
-  const newPrice = 1.5 * price + 5;
+  const newPrice = Math.round(add( 1.5 * price, 5));
   playerFound.moneyLvlUp = newPrice;
 
   serialize(jsonDbPath, list);

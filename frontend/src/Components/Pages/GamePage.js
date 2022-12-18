@@ -23,8 +23,8 @@ function allInfo(){
   // PLAYER STATS
   const player = getThePlayer();
 
-  const playerLvl =player.lvl;
-  const playerCoal = JSON.stringify(player.coal);
+  const playerLvl = 25;
+  const playerCoal = player.coal;
   const playerIron = player.iron;
   const playerSilver = player.silver;
   const playerGold = player.gold;
@@ -40,17 +40,24 @@ function allInfo(){
   lvlUpButton.innerText = 'Level Up';
   lvlUpButton.id = 'lvlUpButton'
   lvlUpButton.className = 'btn btn-outline-primary borderbouton';
-  // lvlUpButton.addEventListener("click", gameCalcul.upHisLvl());
+  lvlUpButton.addEventListener("click", ()=>{upHisLvl()});
 
   const showMoney = document.createElement('div');
   showMoney.innerHTML = `you have in total ${playerMoney}$`; 
   showMoney.id = 'showMoney';
+
+  const sellButton = document.createElement('button');
+  sellButton.innerText = 'Sell all';
+  sellButton.id = 'sellButton'
+  sellButton.className = 'btn btn-outline-primary borderbouton';
+  lvlUpButton.addEventListener("click", ()=>{sellAll()});
 
   const statsRow = document.createElement('div');
   statsRow.className = 'd-flex p-2';
   statsRow.appendChild(showLvl);
   statsRow.appendChild(lvlUpButton);
   statsRow.appendChild(showMoney);
+  statsRow.appendChild(sellButton)
 
   grid.appendChild(statsRow);
   
@@ -58,7 +65,7 @@ function allInfo(){
   genCoal.innerText = 'Mine';
   genCoal.id = 'genCoal'
   genCoal.className = 'btn btn-outline-primary borderbouton';
-  // generateur1.addEventListener("click", ()=>{resource(1)});
+  genCoal.addEventListener("click", ()=>{addCoal()});
   
   const showCoal = document.createElement('div');
   showCoal.innerHTML = `You have ${playerCoal} coal, it has a value of ${playerCoal*5} $`; 
@@ -76,7 +83,7 @@ function allInfo(){
     genIron.innerText = 'Mine';
     genIron.id = 'genIron'
     genIron.className = 'btn btn-outline-primary borderbouton';
-    // generateur2.addEventListener("click", ()=>{resource(2)});
+    genIron.addEventListener("click", ()=>{addIron()});
   
     const showIron = document.createElement('div');
     showIron.innerHTML = `You have ${playerIron} iron, it has a value of ${playerIron*20}$`; 
@@ -94,7 +101,7 @@ function allInfo(){
     genSilver.innerText = 'Mine';
     genSilver.id = 'genSilver'
     genSilver.className = 'btn btn-outline-primary borderbouton';
-    // generateur3.addEventListener("click", ()=>{resource(3)});
+    genSilver.addEventListener("click", ()=>{addSilver()});
   
     const showSilver = document.createElement('div');
     showSilver.innerHTML = `You have ${playerSilver} silver, it has a value of ${playerSilver*100}$`; 
@@ -112,7 +119,7 @@ function allInfo(){
     genGold.innerText = 'Mine';
     genGold.id = 'genGold'
     genGold.className = 'btn btn-outline-primary borderbouton';
-    // generateur4.addEventListener("click", ()=>{resource(4)});
+    genGold.addEventListener("click", ()=>{addGold()});
     
     const showGold = document.createElement('div');
     showGold.innerHTML = `You have ${playerGold} gold, it has a value of ${playerGold*250}$`;
@@ -143,5 +150,83 @@ async function getThePlayer(){
 
   return response;
 };
+
+// LVL UP
+async function upHisLvl(){
+  const options = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  };
+
+  await fetch('/api/game/lvlUp', options);
+  GamePage();
+}
+
+// SELL
+async function sellAll(){
+  const options = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  };
+
+  await fetch('/api/game/sellResources', options);
+  GamePage();
+}
+
+// ADD 1 COAL
+async function addCoal(){
+  const options = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  };
+
+  await fetch('/api/game/setCoal', options);
+  GamePage();
+}
+
+// ADD 1 IRON
+async function addIron(){
+  const options = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  };
+
+  await fetch('/api/game/setIron', options);
+  GamePage();
+}
+
+// ADD 1 SILVER
+async function addSilver(){
+  const options = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  };
+
+  await fetch('/api/game/setSilver', options);
+  GamePage();
+}
+
+// ADD 1 GOLD
+async function addGold(){
+  const options = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  };
+
+  await fetch('/api/game/setGold', options);
+  GamePage();
+}
 
 export default GamePage;

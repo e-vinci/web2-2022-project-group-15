@@ -13,6 +13,9 @@
 - Votre API doit respecter les droits d’auteurs, que ça soit pour les éventuelles librairies utilisées, les morceaux de code, les sons, images, vidéos… Cela est de votre responsabilité et non pas de celle de vos enseignants.
 - Vous devez déployer votre backend sur Azure ou d’autres providers gratuits supportant votre application.
 
+## Documentation de l'APi
+Vous pourrez retrouver la documentation des routes et des tests de l'api dans le point 9.3 du rapport de projet disponible sur moodle.
+
 ## Frontend
 - Votre frontend doit appliquer le boilerplate offert dans le cadre du cours de Web2.
 - Votre frontend doit mettre en œuvre une librairie JS externe, ou l’API Canvas, afin de réaliser une animation.
@@ -64,8 +67,5 @@
 ## Revues de projets par les pairs
 - Une fois votre projet soumis, vous devrez réaliser un minimum de 5 revues qui vous seront attribuées automatiquement via le site du cours.
 
-
-## Documentation APi Lodash
-lien : https://lodash.com/docs/4.17.15
 ## Lien vers le projet
 Lien: https://github.com/e-vinci/web2-2022-project-group-15

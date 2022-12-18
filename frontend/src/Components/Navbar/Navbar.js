@@ -42,7 +42,7 @@ function renderNavbar() {
                 <a class="nav-link active" aria-current="page" href="#" data-uri="/">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#" data-uri="/login">Game</a>
+                <a class="nav-link" href="#" data-uri="/login" id="linkGame">Game</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#" data-uri="/login">Login page</a>
@@ -59,7 +59,8 @@ function renderNavbar() {
   const authenticatedUserNavbar = `
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">Add your brand here</a>
+        <a class="navbar-brand" href="#">DataMiner</a>
+        <img src="${logoPicture.src}">
         <button
           class="navbar-toggler"
           type="button"
@@ -78,9 +79,6 @@ function renderNavbar() {
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#" data-uri="/game">Game</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#" data-uri="/new">New Page</a>
             </li>
               <li class="nav-item">
                 <a class="nav-link" href="#" data-uri="/logout">Logout</a>

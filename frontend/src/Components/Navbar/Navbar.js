@@ -42,7 +42,7 @@ function renderNavbar() {
                 <a class="nav-link active" aria-current="page" href="#" data-uri="/">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#" data-uri="/game">Game</a>
+                <a class="nav-link" href="#" data-uri="/login">Game</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#" data-uri="/login">Login page</a>

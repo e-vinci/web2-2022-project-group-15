@@ -194,8 +194,9 @@ function getPlayer(id){
   const playerFound = list.find((player) => player.playerId === id);
 
   if(playerFound === undefined){
-    throw Error;
+    console.log("playerFound = undefined");
   }
+    console.log("found player =", playerFound);
   return playerFound;
 }
   

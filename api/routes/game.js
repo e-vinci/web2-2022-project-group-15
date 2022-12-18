@@ -60,4 +60,4 @@ router.post('/getPlayer', (req, res) => {
     return res.json(player);
 })
 
-module.exports=router;
+module.exports = router;

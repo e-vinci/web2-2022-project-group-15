@@ -9,6 +9,22 @@ Content-Type: application/json
 POST {{baseUrl}}/game/setCoal
 Content-Type: application/json
 
+### set Iron
+POST {{baseUrl}}/game/setIron
+Content-Type: application/json
+
+### set Silver
+POST {{baseUrl}}/game/setSilver
+Content-Type: application/json
+
+### set Gold
+POST {{baseUrl}}/game/setGold
+Content-Type: application/json
+
+### sell Resources
+POST {{baseUrl}}/game/sellResources
+Content-Type: application/json
+
 ### money per lvl
 POST {{baseUrl}}/game/lvlUp
 Content-Type: application/json

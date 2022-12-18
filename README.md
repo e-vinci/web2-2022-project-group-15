@@ -69,3 +69,6 @@ Vous pourrez retrouver la documentation des routes et des tests de l'api dans le
 
 ## Lien vers le projet
 Lien: https://github.com/e-vinci/web2-2022-project-group-15
+
+## Lien vers le site sous cloud
+Lien: https://e-vinci.github.io/web2-2022-project-group-15/

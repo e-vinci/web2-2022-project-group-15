@@ -39,17 +39,17 @@ function allInfo(){
   const lvlUpButton = document.createElement('button');
   lvlUpButton.innerText = 'Level Up';
   lvlUpButton.id = 'lvlUpButton'
-  lvlUpButton.className = 'btn btn-outline-primary borderbouton';
+  lvlUpButton.className = 'btn btn-outline-primary borderbouton mx-2';
   lvlUpButton.addEventListener("click", ()=>{upHisLvl()});
 
   const showMoney = document.createElement('div');
-  showMoney.innerHTML = `you have in total ${playerMoney}$`; 
+  showMoney.innerHTML = `You have ${playerMoney} $`; 
   showMoney.id = 'showMoney';
 
   const sellButton = document.createElement('button');
   sellButton.innerText = 'Sell all';
   sellButton.id = 'sellButton'
-  sellButton.className = 'btn btn-outline-primary borderbouton';
+  sellButton.className = 'btn btn-outline-primary borderbouton mx-2';
   lvlUpButton.addEventListener("click", ()=>{sellAll()});
 
   const statsRow = document.createElement('div');

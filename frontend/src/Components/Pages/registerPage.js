@@ -79,7 +79,7 @@ function renderRegisterForm() {
   const submit = document.createElement('input');
   submit.value = 'Register';
   submit.type = 'submit';
-  submit.className = 'btn btn-outline-primary borderbouton';
+  submit.className = 'btn btn-outline-primary borderbouton mb-4';
 
   const check = document.createElement('input');
   check.type = 'checkbox';
@@ -89,7 +89,7 @@ function renderRegisterForm() {
   
   const messageCheck = document.createElement('label');
   messageCheck.className = 'form-check-label';
-  messageCheck.innerText = 'by submitting this form, I accept that this website uses my data within the strict framework of our services while respecting the ';
+  messageCheck.innerText = 'By submitting this form, I accept that this website uses my data within the strict framework of our services while respecting the ';
   
   const linkCheck = document.createElement('a');
   linkCheck.href = 'https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679&from=EN'

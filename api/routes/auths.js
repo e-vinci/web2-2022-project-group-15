@@ -1,3 +1,11 @@
+/**
+ * Title: <js-demo>
+ * Author: <Baroni>
+ * Date: <5/12/2022> 
+ * Availability <https://github.com/e-vinci/js-demos/blob/main/backend-restful-api/restful-api-essentials/auths/routes/auths.js>
+ */
+
+
 const express = require('express');
 const { register, login } = require('../models/users');
 

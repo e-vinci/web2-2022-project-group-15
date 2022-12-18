@@ -1,3 +1,10 @@
+/**
+ * Title: <js-demo>
+ * Author: <Baroni>
+ * Date: <2/12/2022> 
+ * Availability <https://github.com/e-vinci/js-demos/blob/main/frontend/frontend-essentials/cookies/src/utils/auths.js>
+ */
+
 const STORE_NAME = 'user';
 let currentUser;
 

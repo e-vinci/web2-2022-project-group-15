@@ -61,7 +61,7 @@ function renderRegisterForm() {
   const submit = document.createElement('input');
   submit.value = 'Login';
   submit.type = 'submit';
-  submit.className = 'btn btn-outline-primary borderbouton';
+  submit.className = 'btn btn-outline-primary borderbouton mb-3';
 
   const titlePage = document.createElement('h3');
   titlePage.innerText = 'Login';
